@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Web/Frontend developer" />
+    <meta property="og:title" content="Alexey M." />
+    <meta property="og:type" content="personal website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="stylesheet" href="./src/index.css" class="style" />
+    <link rel="icon" href="./src/img/favicon.png" />
+    <link rel="apple-touch-icon" href="./src/img/favicon.png" />
+
+    <title>Alexey Melnichenko | Frontend Developer</title>
+</head>
+<body>
+    
+    <content id="main-grid" class="content">
+        <header class="header">
+            <div class="header__logo">
+                <img src="./src/img/am-gears-logo.png" alt="Alexey Malfunction" class="logo">
+            </div>
+            <div class="header__nav">
+                <a href="#" class="nav__item">About</a>
+                <a href="#" class="nav__item">Works</a>
+                <a href="#" class="nav__item">Contacts</a>
+                <span class="filler-line"></span>
+            </div>
+        </header>
+        <element class="hex-element" id="hexElement"></element>
+        <main class="main">
+            <p class="sub-title">Alexey Melnichenko</p>
+            <div class="title">Frontend Developer</div>
+            <div class="about-text">Hey there! My name is Alexey. I'm 36 years old and I live in Tbilisi Georgia.
+                I work with JavaScript (and TypeScript), HTML and CSS, React. I'm familiar with PHP and MySQL.
+                Lorem Ipsum, gotta write some decent text here...
+            </div>
+            <div class="btn">Contact Me</div>
+        </main>
+        <footer class="footer">
+            <div class="footer__social">
+                <span class="filler-line"></span>
+                <a href="mailto:malfunctionn@gmail.com" class="social__link">
+                    <img src='./src/img/email.svg' alt="Email" title="Email to malfunctionn@gmail.com" class="social__link-img">
+                </a>
+                <a href="https://github.com/Antizycle" class="social__link">
+                    <img src='./src/img/github.svg' alt="Github" title="My GitHub Repository" class="social__link-img">
+                </a>
+                <a href="https://www.linkedin.com/in/alexey-melnichenko-772111263/" class="social__link">
+                    <img src='./src/img/linkedin.svg' alt="LinkedIn" title="My Linked.In profile" class="social__link-img">
+                </a>
+                <a href="https://www.instagram.com/antizycle/" class="social__link">
+                    <img src='./src/img/instagram.svg' alt="Instagram" title="My Instagram" class="social__link-img">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <section class="mode-switch__container">
+        <span class="mode-switch">
+            Dark <div class="dark-mode dark-mode_is-active" id="dark"></div> |
+            <div class="dark-mode" id="darker"></div> Darker
+        </span>
+    </section>
+
+    <section class="vertial-text">
+        2022-2023 &copy; Alexey Melcnichenko
+    </section>
+
+<script>
+    const hexEl = document.getElementById('hexElement');
+    const darkModeBtn = document.getElementById('dark');
+    const darkerModeBtn = document.getElementById('darker');
+    let rotateDeg = 0;
+
+    // rotating hex
+    if (hexEl) {
+        const intervalId = setInterval(rotateHexEl, 20);
+    }
+
+    function rotateHexEl() {
+        rotateDeg += 1;
+        hexEl.style.transform = "rotate(" + rotateDeg + "deg)";
+        if (rotateDeg === 360) rotateDeg = 0;
+    }
+
+    if (!hexEl) {
+        clearInterval(intervalId);
+    }
+
+    // mode switch
+    darkModeBtn.addEventListener('click', modeToggle);
+    darkerModeBtn.addEventListener('click', modeToggle);
+
+    function modeToggle() {
+        darkModeBtn.classList.toggle('dark-mode_is-active');
+        darkerModeBtn.classList.toggle('dark-mode_is-active');
+    }
+
+</script>
+
+</body>
+</html>
