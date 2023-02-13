@@ -1,6 +1,27 @@
+let includeEl = document.getElementById('include');
+const link = getPageName();
+
+switch(link) {
+    case 'about': {
+        includeEl.setAttribute('w3-include-html','./src/pages/about.html');
+        break;
+    }
+    case 'works': {
+        includeEl.setAttribute('w3-include-html','./src/pages/works.html');
+        break;
+    }
+    case 'contacts': {
+        includeEl.setAttribute('w3-include-html','./src/pages/contacts.html');
+        break;
+    }
+    default: {
+        includeEl.attributes['w3-include-html'] = './src/pages/about.html';
+        break;
+    }
+}
+
 function addHTML() {
     let fileName, xmlHttp;
-    let includeEl = document.getElementById('include');
 
     fileName = includeEl.getAttribute("w3-include-html");
        
@@ -22,6 +43,17 @@ function addHTML() {
         
         return;
     }
+}
+
+function getPageName() {
+    const string = location.search.slice(1).split('&', 1);
+    let value = 'about';
+    console.log(string);
+    if (/^[a-z=]*$/.test(string[0])) {
+        value = string[0].split('=', 2);
+        console.log(value);
+    }
+    return value[1];
 }
 
  addHTML();
