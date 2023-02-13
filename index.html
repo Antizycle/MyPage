@@ -17,8 +17,7 @@
     <title>Alexey Melnichenko | Frontend Developer</title>
 </head>
 <body id='body'>
-    
-    <content id="main-grid" class="content">
+        <content class="content">
         <header class="header">
             <div class="header__logo">
                 <!-- <div  alt="Alexey Malfunction" class="logo"></div> -->
@@ -31,14 +30,8 @@
             </div>
         </header>
         <element class="hex-element" id="hexElement"></element>
-        <main class="main">
-            <p class="sub-title">Alexey Melnichenko</p>
-            <div class="title">Frontend Developer</div>
-            <div class="about-text">Hey there! My name is Alexey. I'm 36 years old and I live in Tbilisi Georgia.
-                I work with JavaScript (and TypeScript), HTML and CSS, React. I'm familiar with PHP and MySQL.
-                Lorem Ipsum, gotta write some decent text here...
-            </div>
-            <div class="btn">Contact Me</div>
+        <main class="main" w3-include-html="./src/pages/about.html" id="include">
+            
         </main>
         <footer class="footer">
             <div class="footer__social">
@@ -69,47 +62,9 @@
         2022-2023 &copy; Alexey Melcnichenko
     </section>
 
-<script>
-    const hexEl = document.getElementById('hexElement');
-    const darkModeBtn = document.getElementById('dark');
-    const bodyEl = document.getElementById('body');
-    let isDarker = Boolean;
-    let rotateDeg = 0;
+<script src="./src/code.js"></script>
+<script src="./src/html-include.js"></script>
 
-    // rotating hex
-    if (hexEl) {
-        const intervalId = setInterval(rotateHexEl, 20);
-    }
-
-    function rotateHexEl() {
-        rotateDeg += 1;
-        hexEl.style.transform = "rotate(" + rotateDeg + "deg)";
-        if (rotateDeg === 360) rotateDeg = 0;
-    }
-
-    if (!hexEl) {
-        clearInterval(intervalId);
-    }
-
-    // mode switch
-    if (localStorage.getItem('darker')) {
-        isDarker = localStorage.getItem('darker');
-        if (isDarker === 'true') {
-            console.log('isDarker is in storage and true');
-            modeToggle();
-        }
-    }
-    else isDarker = false;
-
-    darkModeBtn.addEventListener('click', modeToggle);
-
-    function modeToggle() {
-        darkModeBtn.classList.toggle('dark-mode_is-active');
-        isDarker = bodyEl.classList.toggle('make-it-darker');
-        localStorage.setItem('darker', isDarker);
-    }
-
-</script>
 
 </body>
 </html>

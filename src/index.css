@@ -149,6 +149,11 @@ main {
     align-items: center;
     gap: 2em;
 }
+.main__content {
+    width: 90vw;
+    min-height: fit-content;
+    overflow: visible;
+}
 
 .sub-title {
     margin: auto;
