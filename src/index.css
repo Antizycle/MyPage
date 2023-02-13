@@ -10,6 +10,16 @@
     --pad: max(10px, 4vmin);
 }
 
+.make-it-darker {
+    --bg-dark-color: #000;
+    --accent-color: #dad8d8;
+    /* 
+    accent - white
+    bg - black
+    text - white
+    */
+}
+
 img {
     max-width: 100%;
 }
@@ -38,6 +48,11 @@ body {
                 -1px -1px 10px rgba(247, 209, 0, 0.2);
 }
 
+.make-it-darker .content {
+    box-shadow: 1px 1px 10px rgba(209, 209, 209, 0.2),
+                -1px -1px 10px rgba(209, 209, 209, 0.2);
+}
+
 header {
     display: flex;
     margin-top: 2em;
@@ -46,12 +61,19 @@ header {
     gap: 2em;
 }
 
-.logo {
+.header__logo {
     border: 1px solid var(--accent-color);
     margin-left: 2em;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    background-image: url('./img/am-gears-logo.png');
+    background-size: 50px 50px;
+}
+
+.make-it-darker .header__logo {
+    background-image: url('./img/am-gears-logo-bw.png');
+
 }
 
 .header__nav {
@@ -251,6 +273,7 @@ footer {
     border-top: none;
     font-size: .75em;
     padding: 0.2em 0.3em 0 0.3em;
+    background-color: var(--bg-dark-color);
     opacity: 0.2;
 }
 
@@ -260,19 +283,32 @@ footer {
 }
 
 .dark-mode {
+    position: relative;
     display: inline-block;
-    width: 7px;
+    width: 21px;
     height: 7px;
-    padding: 0 .2em;
-    background-color: var(--text-color);
+    background-color: var(--bg-dark-color);
+    border: 1px solid var(--accent-color);
     cursor: pointer;
 }
 
-.dark-mode_is-active {
+.dark-mode::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 8px;
+    height: 6px;
     background-color: var(--accent-color);
+    transform-origin: left;
+    transition: 50ms ease-in;
 }
 
-.vertial-text {
+.dark-mode_is-active::after {
+    left: 12px
+}
+
+.vertical-text {
     position: absolute;
     right: calc(var(--pad) + 1.2em);
     bottom: calc(var(--pad) + 0.8em);

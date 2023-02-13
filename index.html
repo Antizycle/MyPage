@@ -16,12 +16,12 @@
 
     <title>Alexey Melnichenko | Frontend Developer</title>
 </head>
-<body>
+<body id='body'>
     
     <content id="main-grid" class="content">
         <header class="header">
             <div class="header__logo">
-                <img src="./src/img/am-gears-logo.png" alt="Alexey Malfunction" class="logo">
+                <!-- <div  alt="Alexey Malfunction" class="logo"></div> -->
             </div>
             <div class="header__nav">
                 <a href="#" class="nav__item">About</a>
@@ -43,16 +43,16 @@
         <footer class="footer">
             <div class="footer__social">
                 <span class="filler-line"></span>
-                <a href="mailto:malfunctionn@gmail.com" class="social__link">
+                <a href="mailto:malfunctionn@gmail.com" target='_blank' class="social__link">
                     <img src='./src/img/email.svg' alt="Email" title="Email to malfunctionn@gmail.com" class="social__link-img">
                 </a>
-                <a href="https://github.com/Antizycle" class="social__link">
+                <a href="https://github.com/Antizycle" target='_blank' class="social__link">
                     <img src='./src/img/github.svg' alt="Github" title="My GitHub Repository" class="social__link-img">
                 </a>
-                <a href="https://www.linkedin.com/in/alexey-melnichenko-772111263/" class="social__link">
+                <a href="https://www.linkedin.com/in/alexey-melnichenko-772111263/" target='_blank' class="social__link">
                     <img src='./src/img/linkedin.svg' alt="LinkedIn" title="My Linked.In profile" class="social__link-img">
                 </a>
-                <a href="https://www.instagram.com/antizycle/" class="social__link">
+                <a href="https://www.instagram.com/antizycle/" target='_blank' class="social__link">
                     <img src='./src/img/instagram.svg' alt="Instagram" title="My Instagram" class="social__link-img">
                 </a>
             </div>
@@ -61,19 +61,19 @@
 
     <section class="mode-switch__container">
         <span class="mode-switch">
-            Dark <div class="dark-mode dark-mode_is-active" id="dark"></div> |
-            <div class="dark-mode" id="darker"></div> Darker
+            Dark <div class="dark-mode" id="dark"></div> Darker
         </span>
     </section>
 
-    <section class="vertial-text">
+    <section class="vertical-text">
         2022-2023 &copy; Alexey Melcnichenko
     </section>
 
 <script>
     const hexEl = document.getElementById('hexElement');
     const darkModeBtn = document.getElementById('dark');
-    const darkerModeBtn = document.getElementById('darker');
+    const bodyEl = document.getElementById('body');
+    let isDarker = Boolean;
     let rotateDeg = 0;
 
     // rotating hex
@@ -92,12 +92,21 @@
     }
 
     // mode switch
+    if (localStorage.getItem('darker')) {
+        isDarker = localStorage.getItem('darker');
+        if (isDarker === 'true') {
+            console.log('isDarker is in storage and true');
+            modeToggle();
+        }
+    }
+    else isDarker = false;
+
     darkModeBtn.addEventListener('click', modeToggle);
-    darkerModeBtn.addEventListener('click', modeToggle);
 
     function modeToggle() {
         darkModeBtn.classList.toggle('dark-mode_is-active');
-        darkerModeBtn.classList.toggle('dark-mode_is-active');
+        isDarker = bodyEl.classList.toggle('make-it-darker');
+        localStorage.setItem('darker', isDarker);
     }
 
 </script>
