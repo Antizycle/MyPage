@@ -251,6 +251,21 @@ main {
     filter: none;
 }
 
+.contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    background-color: var(--bg-dark-color);
+}
+
+.contacts a {
+    font-size:  1.12em;
+    font-weight: 400;
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 .btn {
     display: block;
     cursor: pointer;
