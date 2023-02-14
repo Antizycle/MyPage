@@ -196,7 +196,7 @@ main {
     margin: auto;
     padding: .2em;
     border: 1px solid var(--accent-color);
-    width: clamp(20vw, 400px, 50vw);
+    width: clamp(30vw, 500px, 65vw);
     height: fit-content;
     text-align: center;
     justify-content: center;
