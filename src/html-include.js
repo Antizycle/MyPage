@@ -48,10 +48,8 @@ function addHTML() {
 function getPageName() {
     const string = location.search.slice(1).split('&', 1);
     let value = 'about';
-    console.log(string);
     if (/^[a-z=]*$/.test(string[0])) {
         value = string[0].split('=', 2);
-        console.log(value);
     }
     return value[1];
 }
