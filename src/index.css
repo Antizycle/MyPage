@@ -202,15 +202,20 @@ main {
     justify-content: center;
 }
 
+.about-text > p {
+    text-align: justify;
+    margin: .3em 0;
+}
+
 .card-wrapper {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 250px;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
     padding: 0 1rem 1rem;
     width: 80%;
-    overflow-x: auto;
+    overflow-x: scroll;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: 1rem;
@@ -420,5 +425,11 @@ footer {
     * {
         scrollbar-color: var(--accent-color) var(--bg-dark-color);
         scrollbar-width: thin;
+    }
+}
+
+@media (min-width: 700px) {
+    .card-wrapper {
+        justify-content: center;
     }
 }
