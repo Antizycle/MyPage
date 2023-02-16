@@ -3,43 +3,42 @@ const link = getPageName();
 
 switch(link) {
     case 'about': {
-        includeEl.setAttribute('w3-include-html','./src/pages/about.html');
+        includeEl.setAttribute('fetch-html','./src/pages/about.html');
         break;
     }
     case 'works': {
-        includeEl.setAttribute('w3-include-html','./src/pages/works.html');
+        includeEl.setAttribute('fetch-html','./src/pages/works.html');
         break;
     }
     case 'contacts': {
-        includeEl.setAttribute('w3-include-html','./src/pages/contacts.html');
+        includeEl.setAttribute('fetch-html','./src/pages/contacts.html');
         break;
     }
     default: {
-        includeEl.attributes['w3-include-html'] = './src/pages/about.html';
+        includeEl.attributes['fetch-html'] = './src/pages/about.html';
         break;
     }
 }
 
 function addHTML() {
-    let fileName, xmlHttp;
+    let fileName;
 
-    fileName = includeEl.getAttribute("w3-include-html");
+    fileName = includeEl.getAttribute("fetch-html");
        
     if (fileName) {
-        xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    includeEl.innerHTML = this.responseText;
-                }
-                if (this.status == 404) {
-                    includeEl.innerHTML = "Page not found.";
-                }
-                includeEl.removeAttribute("w3-include-html");
-            }
-        }
-        xmlHttp.open("GET", fileName, true);
-        xmlHttp.send();
+
+        fetch(fileName)
+        .then(response => {
+            return response.text();
+        })
+        .then(pageBody => {
+            includeEl.innerHTML = pageBody;
+        })
+        .catch(error => {
+            includeEl.textContent = (error, "404: Page is not Found");
+        });
+
+        includeEl.removeAttribute("fetch-html");
         
         return;
     }
