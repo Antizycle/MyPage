@@ -1,1 +1,1 @@
-Alexy Melnicheno personal website. Work in Progress
+Alexy Melnicheno personal website

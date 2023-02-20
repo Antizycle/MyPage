@@ -242,6 +242,7 @@ main {
     aspect-ratio: 4 / 4;
     object-fit: cover;
     border-radius: 10px;
+    border: 1px solid var(--accent-color);
 }
 
 .card__img:hover {
@@ -407,6 +408,10 @@ footer {
     transform: rotate(90deg);
 }
 
+.underline-text {
+    text-decoration: underline;
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
     width: 0.5em;
@@ -428,8 +433,8 @@ footer {
     }
 }
 
-@media (min-width: 700px) {
+/* @media (min-width: 700px) {
     .card-wrapper {
         justify-content: center;
     }
-}
+} */
